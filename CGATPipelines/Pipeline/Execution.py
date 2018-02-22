@@ -141,7 +141,8 @@ def execute(statement, **kwargs):
                                shell=True,
                                stdin=subprocess.PIPE,
                                stdout=subprocess.PIPE,
-                               stderr=subprocess.PIPE)
+                               stderr=subprocess.PIPE,
+                               env=os.environ.copy())
 
     # process.stdin.close()
     stdout, stderr = process.communicate()
@@ -589,7 +590,8 @@ def run(**kwargs):
                 shell=True,
                 stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE)
+                stderr=subprocess.PIPE,
+                env=os.environ.copy())
 
             # process.stdin.close()
             stdout, stderr = process.communicate()
