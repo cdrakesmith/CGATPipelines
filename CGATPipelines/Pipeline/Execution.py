@@ -136,6 +136,7 @@ def execute(statement, **kwargs):
     if statement.endswith(";"):
         statement = statement[:-1]
 
+    os.environ.update({'BASH_ENV': os.path.join(os.environ['HOME'],'.bashrc')})
     process = subprocess.Popen(statement % kwargs,
                                cwd=cwd,
                                shell=True,
@@ -582,6 +583,7 @@ def run(**kwargs):
                 statement = pipes.quote(statement)
                 statement = "%s -c %s" % (shell, statement)
 
+            os.environ.update({'BASH_ENV': os.path.join(os.environ['HOME'],'.bashrc')})
             process = subprocess.Popen(
                 expandStatement(
                     statement,
