@@ -1,6 +1,6 @@
 """
 ======================
-Exome Cancer pipeline
+WGS Cancer pipeline
 ======================
 
 
